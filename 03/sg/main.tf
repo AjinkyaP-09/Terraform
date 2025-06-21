@@ -1,6 +1,6 @@
 resource "aws_security_group" "main" {
   description = "Allow traffic for apache2 server page"
-  vpc_id      = aws_vpc.main.id
+#  vpc_id      = aws_vpc.main.id
 
   tags = {
     Name = "SG for Modules"

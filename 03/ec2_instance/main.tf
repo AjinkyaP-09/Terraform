@@ -1,7 +1,7 @@
 resource "aws_instance" "myinstance" {
 	instance_type = "t2.micro"
 	ami = var.ami_id
-	vpc_security_group_ids = aws_security_group.main.id
+	vpc_security_group_ids = var.security_group_ids
 	tags = {
 		Name = "MyInstance"
 	}
@@ -12,6 +12,6 @@ resource "aws_instance" "myinstance" {
         sudo systemctl status apache2
         sudo systemctl start apache2
         sudo chown -R $USER:$USER /var/www/html
-        sudo echo "<html><body><h1>Hello this is module-1 at instance id ${aws_instance.myinstance.public_ip} </h1></body></html>" > /var/www/html/index.html
+        sudo echo "<html><body><h1>Hello this is module-1<h1></body></html>" > /var/www/html/index.html
         EOF
 }
